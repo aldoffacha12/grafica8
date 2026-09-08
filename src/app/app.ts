@@ -8,4 +8,6 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {}
+export class App {
+  protected readonly matrizHardcodeada: number[] = [2, 0, 0, 1.5, 150, 120];
+}
