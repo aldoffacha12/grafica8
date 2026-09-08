@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { Transform } from './transform';
+import { TransformService } from './transform';
 
-describe('Transform', () => {
-  let service: Transform;
+describe('TransformService', () => {
+  let service: TransformService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Transform);
+    service = TestBed.inject(TransformService);
   });
 
   it('should be created', () => {
