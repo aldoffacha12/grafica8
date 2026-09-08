@@ -1,0 +1,19 @@
+.panel-controles {
+  width: 320px;
+  padding: 20px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+}
+
+.control {
+  margin-bottom: 20px;
+}
+
+.control label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.control input {
+  width: 100%;
+}

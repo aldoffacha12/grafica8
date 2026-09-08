@@ -1,0 +1,62 @@
+<div class="panel-controles">
+
+  <h2>Controles</h2>
+
+  <div class="control">
+    <label>Traslación X: {{ tx }}</label>
+
+    <input
+      type="range"
+      min="-300"
+      max="300"
+      [(ngModel)]="tx"
+      (input)="emitirTraslacion()">
+  </div>
+
+  <div class="control">
+    <label>Traslación Y: {{ ty }}</label>
+
+    <input
+      type="range"
+      min="-300"
+      max="300"
+      [(ngModel)]="ty"
+      (input)="emitirTraslacion()">
+  </div>
+
+  <div class="control">
+    <label>Escala: {{ escala }}</label>
+
+    <input
+      type="range"
+      min="0.5"
+      max="3"
+      step="0.1"
+      [(ngModel)]="escala"
+      (input)="emitirEscala()">
+  </div>
+
+  <div class="control">
+    <label>Rotación: {{ rotacion }}°</label>
+
+    <input
+      type="range"
+      min="0"
+      max="360"
+      [(ngModel)]="rotacion"
+      (input)="emitirRotacion()">
+  </div>
+
+  <div class="botones">
+
+    <button (click)="reflejoHorizontal()">
+      Reflejo horizontal
+    </button>
+
+    <button (click)="reflejoVertical()">
+      Reflejo vertical
+    </button>
+
+  </div>
+
+</div>
