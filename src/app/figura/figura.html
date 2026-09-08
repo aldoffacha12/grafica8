@@ -1,5 +1,7 @@
 <ko-stage [config]="stageConfig">
   <ko-layer>
-    <ko-rect [config]="rectConfig"></ko-rect>
+    @for (cara of caras; track $index) {
+      <ko-line [config]="cara"></ko-line>
+    }
   </ko-layer>
 </ko-stage>
