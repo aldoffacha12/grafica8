@@ -1,23 +1,27 @@
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
 
-describe('App', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [App],
-    }).compileComponents();
+describe('App integracion', () => {
+  it('deberia arrancar con la matriz identidad', () => {
+    const app = TestBed.runInInjectionContext(() => new App());
+    expect(app.matrizActual.map((n) => n + 0)).toEqual([1, 0, 0, 1, 0, 0]);
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(App);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  it('traslacion deberia actualizar la matriz', () => {
+    const app = TestBed.runInInjectionContext(() => new App());
+    app.onCambio({ tipo: 'traslacion', tx: 10, ty: 20 });
+    expect(app.matrizActual.map((n) => n + 0)).toEqual([1, 0, 0, 1, 10, 20]);
   });
 
-  it('should render title', async () => {
-    const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, grafica8');
+  it('escala deberia actualizar la matriz', () => {
+    const app = TestBed.runInInjectionContext(() => new App());
+    app.onCambio({ tipo: 'escala', sx: 2, sy: 2 });
+    expect(app.matrizActual.map((n) => n + 0)).toEqual([2, 0, 0, 2, 0, 0]);
+  });
+
+  it('reflejo horizontal deberia negar la escala x', () => {
+    const app = TestBed.runInInjectionContext(() => new App());
+    app.onCambio({ tipo: 'reflejo', eje: 'x' });
+    expect(app.matrizActual.map((n) => n + 0)).toEqual([-1, 0, 0, 1, 0, 0]);
   });
 });

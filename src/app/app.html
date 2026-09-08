@@ -1,1 +1,7 @@
-<app-controles></app-controles>
+<main>
+  <h2>Hackathon de Transformaciones</h2>
+  <app-controles (cambio)="onCambio($event)"></app-controles>
+  <app-figura [matriz]="matrizActual"></app-figura>
+</main>
+
+<router-outlet />
